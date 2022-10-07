@@ -1,0 +1,78 @@
+@font-face{font-family:'Open Sans';src:local("Open Sans"),local("OpenSans"),url(../fonts/OpenSans.woff2) format("woff2"),url(../fonts/OpenSans.woff) format("woff")}@font-face{font-weight:700;font-family:'Open Sans';src:local("Open Sans Bold"),local("OpenSans-Bold"),url(../fonts/OpenSans.Bold.woff2) format("woff2"),url(../fonts/OpenSans.Bold.woff) format("woff")}@font-face{font-style:italic;font-family:'Open Sans';src:local("Open Sans Italic"),local("OpenSans-Italic"),url(../fonts/OpenSans.Italic.woff2) format("woff2"),url(../fonts/OpenSans.Italic.woff) format("woff")}@font-face{font-style:italic;font-weight:700;font-family:'Open Sans';src:local("Open Sans Bold Italic"),local("OpenSans-BoldItalic"),url(../fonts/OpenSans.Bold.Italic.woff2) format("woff2"),url(../fonts/OpenSans.Bold.Italic.woff) format("woff")}@font-face{font-weight:300;font-family:'Open Sans';src:local("Open Sans Light"),local("OpenSans-Light"),url(../fonts/OpenSans.Light.woff2) format("woff2"),url(../fonts/OpenSans.Light.woff) format("woff")}@font-face{font-family:'Source Code Pro';src:local("Source Code Pro"),local("SourceCodePro-Regular"),url(../fonts/SourceCodePro.woff2) format("woff2"),url(../fonts/SourceCodePro.woff) format("woff")}@font-face{font-weight:700;font-family:'Source Code Pro';src:local("Source Code Pro Bold"),local("SourceCodePro-Bold"),url(../fonts/SourceCodePro.Bold.woff2) format("woff2"),url(../fonts/SourceCodePro.Bold.woff) format("woff")}
+
+html {
+  margin: 20px;
+  padding: 0;
+}
+
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  font: 13pt/1.8 "Open Sans";
+  hyphens: auto;
+}
+
+header {
+  margin-bottom: 3em;
+}
+
+header p {
+  margin: 0;
+  font-style: italic;
+}
+
+h2 {
+  counter-increment: h2;
+  counter-reset: h3;
+  margin: 1.5em 0 .5em;
+  page-break-after: avoid;
+}
+h2:before {
+  content: counter(h2) ". ";
+}
+h3 {
+  counter-increment: h3;
+  margin: 1.5em 0 0;
+  page-break-after: avoid;
+}
+h3:before {
+  content: counter(h2) "." counter(h3) ". ";
+}
+
+code {
+  font-family: "Source Code Pro";
+  letter-spacing: -.02em;
+  hyphens: none;
+}
+pre {
+  padding: 1em 2em;
+  background-color: #eeeeee;
+  overflow: scroll;
+}
+
+dt {
+  font-weight: bold;
+}
+
+p.example {
+  font-style: italic;
+  background-color: #eeeeee;
+  padding: 1em;
+}
+p.example:before {
+  content: "Voorbeeld ";
+  color: #666666;
+  font-weight: bold;
+}
+
+@media print {
+  body {
+    margin: 0;
+    max-width: auto;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  @page {
+    margin: 2cm
+  }
+}
