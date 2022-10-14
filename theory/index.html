@@ -41,43 +41,191 @@
   </div>
 
   <div class="slide title" id="overview">
-    <h3>Theory</h3>
+    <h3>Linked Data from publication to query</h3>
+    
+    TODO:: Intro
+
+    <footer class="notes">
+    </footer>
+  </div>
+
+  <div class="slide " id="overview">
+    <h2>Data publication on the Web</h2>
     <ul>
-      <li>Introduction</li>
-      <li>Linked Data Publishing</li>
-      <li>Linked Data Querying</li>
-      <li>Comunica</li>
+      <li class="no-next">The current Web provides scalability in amount of clients, not in amount data sources</li>
+      <li class="no-next">There is no inherent scalability in the integration of APIs</li>
+      <li class="no-next">Scalability comes from integration of data</li>
+    </ul>
+
+    <footer class="notes">
+      Scalability on the Web is currently solved by centralization of data.
+      Because of this centralization, data is stored within the context of their data silos, and a select number of APIs is provided that needs to be integrated to use the data.
+      This way, clients working in the context of facebook data, know that a name value means the full name of the user as given by them. 
+      By reading the documentation, it knows how to find images the user stored, images the user is tagged in and more, which is exposed over a limited set of APIs by facebook.
+      In case now they want to include the same data from google, they have to start again from zero, learn the documentation and integrate the new API.
+      Where this might be feasible for a small set of large centralized data silos, this approach is not scalable.
+
+
+
+
+    </footer>
+  </div>
+
+
+  <div class="slide " id="web_scalability">
+    <h2>A Web of API integration</h2>
+    <ul>
+      <li class="no-next">The current Web provides scalability in amount of clients, not in amount data sources</li>
+      <li class="no-next">There is no inherent scalability in the integration of APIs</li>
+      <li class="no-next">Scalability comes from integration of data</li>
     </ul>
   </div>
 
-  <div class="slide title" id="overview">
-    <h3>Intro</h3>
-    <p>Intro to the class</p>
+  <div class="slide " id="data_silos">
+    <h2>Data Silos on the Web</h2>
+    <img src="logos.png" style="height: 50vh;" />
+  </div>
+
+  <div class="slide " id="data_publishing_strategies">
+    <h2>Linked Data Publishing strategies</h2>
+    <ul>
+      <li class="no-next">
+        <a href="https://ruben.verborgh.org/blog/2021/12/23/reflections-of-knowledge/#universal-api">
+          There is no universal API that satisfies the data selection needs of all clients
+        </a>
+      </li>
+      <li class="no-next">
+        API design needs to balance client data selection requirements with the capabilities of the data publisher.
+      </li>
+    </ul>
   </div>
 
 
-  <div class="slide title" id="overview">
-    <h3>Linked Data Publishing</h3>
+
+  <div class="slide " id="publishing_strategies">
+    <h2>Data Publishing strategies</h2>
+    <ul>
+      <li class="no-next">
+        <a href="https://ruben.verborgh.org/blog/2021/12/23/reflections-of-knowledge/#universal-api">
+          There is no universal API that satisfies the data selection needs of all clients
+        </a>
+      </li>
+      <li class="no-next">
+        API design needs to balance client data selection requirements with the capabilities of the data publisher.
+      </li>
+    </ul>
   </div>
 
-  <div class="slide title" id="overview">
-    <h3>Linked Data Querying</h3>
+  <div class="slide" id="important">
+    <h2>!important</h2>
+    TODO:: fix slide. link blog Ruben
+    <ul>
+      <li class="no-next">
+        Clients are not limited to the server abstraction of data.
+        Clients can use abstractions over the Server API.
+      </li>
+    </ul>
   </div>
 
-  <div class="slide title" id="overview">
-    <h3>Comunica</h3>
+  <div class="slide " id="linked_data_publishing">
+    <h2>Linked Data Publishing</h2>
+    <ul>
+      <li>data dump
+        <ul><li>provides an archive file with the entire dataset</li></ul>
+      </li>
+      <li>SPARQL endpoint
+        <ul><li>provides a query endpoint</li></ul>
+      </li>
+      <li>Linked Data Fragments
+        <ul><li>provides a fragmentation of the dataset</li></ul>
+      </li>
+    </ul>
   </div>
 
-  <div class="slide title" id="overview">
-    <h2>Exercises</h2>
-    <p>Intro to the class</p>
+  <div class="slide" id="publishing_data_dump">
+    <h2>A data dump stores all triples of a dataset in one or more files</h2>
+    <ul>
+      <li class="no-next">
+        Clients need to download the full archive
+        <br>
+        before they can query it.
+        <ul><li>These can be several gigabytes.</li></ul>
+      </li>
+      <li class="no-next">
+        They offer the client full flexibility
+        <br>
+        to choose how data is processed.
+      </li>
+      <li class="no-next">
+        Keeping data up-to date requires effort.
+        <ul><li>
+          redownload the entire dump <br>
+          and apply incremental patches
+        </li></ul>
+      </li>
+    </ul>
   </div>
 
-
-  <div class="slide title" id="overview">
-    <h2>Summary</h2>
+  <div class="slide" id="data-dump-example">
+    <h2>
+      A&nbsp;data dump places all dataset triples<br>
+      in one or more archive files.
+    </h2>
+    <iframe class="website" src="https://downloads.dbpedia.org/2016-04/core/"></iframe>
   </div>
   
+  <div class="slide" id="sparql-endpoint">
+    <h2>
+      A&nbsp;SPARQL endpoint lets clients evaluate<br>
+      arbitrary (read-only) queries on a&nbsp;server.
+    </h2>
+    <ul>
+      <li class="no-next">
+        This gives clients direct access to<br>
+        (only) the data they are interested in.
+        <ul>
+          <li>Only very little bandwidth is required.</li>
+        </ul>
+      </li>
+      <li class="no-next">
+        Data is always up-to-date.
+      </li>
+      <li class="no-next">
+        The per-request cost for SPARQL endpoints<br>
+        is much higher than for other HTTP servers.
+        <ul>
+          <li>Few servers allow arbitrarily complicated queries.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="sparql-endpoint-example">
+    <h2>
+      A&nbsp;SPARQL endpoint lets clients evaluate<br>
+      arbitrary (read-only) queries on a&nbsp;server.
+    </h2>
+    <iframe class="website" src="https://dbpedia.org/sparql"></iframe>
+  </div>
+
+
+  <div class="slide " id="publishing_solid">
+    <h2>Solid (LDP)</h2>
+  </div>
+
+  <div class="slide " id="publishing_tree_ldes">
+    <h2>TREE - LDES</h2>
+  </div>
+
+  <div class="slide " id="publishing_tpf">
+    <h2>Triple Pattern Fragments</h2>
+  </div>
+  
+  <div class="slide " id="publishing_sparql">
+    <h2>SPARQL endpoint</h2>
+  </div>
+  
+
 
 
 
