@@ -283,15 +283,52 @@
         Downsides
         <ul>
           <li class="no-next">Requires downloading all the data - even when you only are interested in a small part</li>
-          <li class="no-next">New version? A full download of the new version is required</li>
+          <li class="no-next">New version? A full download of the new version is required or incremental patches have to be applied</li>
         </ul>
       </li>
-      <!-- Any pros we can think of? -->
+      <!-- Any pros we can think of? Maybe full flexibility, but that was already in the previous slide -->
     </ul>
   </div>
  
+  <div class="slide " id="querying_interfaces_data_dump-example">
+    <h2>Querying a data dump: javascript example</h2>
+    <pre><code>
+      const response = await fetch(sourceUrl);
+      const text = await response.text();
+      const textStream = streamifyString(text);
+      const quadStream = rdfParser.parse(textStream,
+        {contentType: 'text/turtle'});
+      const store = await storeStream(quadStream);
+
+      store.getQuads()
+    </code></pre>
+    <footer class="notes">
+      First, the data dump is downloaded using the fetch method. This executes an HTTP GET to the source.
+      The second step serializes the body from the response into a string.
+      Line 3 to 5 convert the string to an N3 Store.
+      Finally, we can actually process/query the data using the N3 functions.
+    </footer>
+  </div>
+
   <div class="slide " id="querying_interfaces_solid">
-    <h2>Querying a Solid pod</h2>
+  <h2>Querying a Solid pod</h2>
+  <ul>
+    <li class="no-next">A solid pod contains documents
+      <ul>
+        <li class="no-next">Each document can be queried like a data dump</li>
+        <li class="no-next">Due to authorization, you can only download what you are allowed to read</li>
+      </ul>
+    </li>
+    <li class="no-next">A solid pod allows for building systems
+      <ul>
+        <li class="no-next">Data can be written to a solid pod (in contrast to a data dump)</li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+
+  <div class="slide " id="querying_interfaces_solid-example">
+
   </div>
 
   <div class="slide " id="querying_interfaces_ldes">
