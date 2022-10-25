@@ -210,11 +210,49 @@
 
 
   <div class="slide " id="publishing_solid">
-    <h2>Solid (LDP)</h2>
+    <h2>Solid: Linked Data Platform (LDP)</h2>
+    <ul>
+      <li class="no-next">
+        <a href="https://www.w3.org/TR/ldp/">Linked Data Platform</a>: read-write architecture for Linked Data using HTTP operations
+      </li>
+      <li class="no-next">
+        LDP RDF Resources
+        <ul>
+          <li>resources that are represented by RDF</li>
+          <li>LDP Container: special type of LDP Resource that contains links to other resources (comparable to a directory)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide " id="publishing_solid-example">
+    <h2>Solid: Linked Data Platform (LDP)</h2>
+    <iframe class="website" src="https://woutslabbinck.inrupt.net/"></iframe>
   </div>
 
   <div class="slide " id="publishing_tree_ldes">
-    <h2>TREE - LDES</h2>
+    <h2>TREE Hypermedia - Linked Data Event Streams (LDES)</h2>
+    <ul>
+      <li class="no-next">
+        <a href="https://w3id.org/tree/specification">TREE Hypermedia Specification</a>
+        <ul>
+          <li>Collection of RDF items (members)</li>
+          <li>Hypermedia relations to query the collection</li>
+        </ul>
+      </li>
+      <li class="no-next">
+        <a href="https://w3id.org/ldes/specification">Linked Data Event Stream</a> 
+        <ul>
+          <li>Extension of a TREE collection where each member is immutable</li>
+          <li>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide " id="publishing_tree_ldes-example">
+    <h2>TREE Hypermedia - Linked Data Event Streams (LDES)</h2>
+    TODO: maybe use Pieter C slides? -> this demo currently sucks...
+    <iframe class="website" src="https://treecg.github.io/TREE-LDES-visualizer/"></iframe>
   </div>
 
   <div class="slide " id="publishing_tpf">
@@ -225,9 +263,86 @@
     <h2>SPARQL endpoint</h2>
   </div>
   
+  <div class="slide " id="querying_interfaces">
+    <h2>Linked Data querying interfaces</h2>
+  </div>
+  
+  <div class="slide " id="querying_interfaces_data_dump">
+    <h2>Querying a data dump</h2>
+    <ul>
+      <li class="no-next">Download the data dump</li>
+      <li class="no-next">Load the files using a library such as <a href="https://github.com/rdfjs/N3.js">N3.js</a></li>
+      <li class="no-next">Query the data using the library</li>
+    </ul>
+  </div>
 
+  <div class="slide " id="querying_interfaces_data_dump-downsides">
+    <h2>Querying a data dump</h2>
+    <ul>
+      <li class="no-next">
+        Downsides
+        <ul>
+          <li class="no-next">Requires downloading all the data - even when you only are interested in a small part</li>
+          <li class="no-next">New version? A full download of the new version is required or incremental patches have to be applied</li>
+        </ul>
+      </li>
+      <!-- Any pros we can think of? Maybe full flexibility, but that was already in the previous slide -->
+    </ul>
+  </div>
+ 
+  <div class="slide " id="querying_interfaces_data_dump-example">
+    <h2>Querying a data dump: javascript example</h2>
+    <pre><code>
+      const response = await fetch(sourceUrl);
+      const text = await response.text();
+      const textStream = streamifyString(text);
+      const quadStream = rdfParser.parse(textStream,
+        {contentType: 'text/turtle'});
+      const store = await storeStream(quadStream);
 
+      store.getQuads()
+    </code></pre>
+    <footer class="notes">
+      First, the data dump is downloaded using the fetch method. This executes an HTTP GET to the source.
+      The second step serializes the body from the response into a string.
+      Line 3 to 5 convert the string to an N3 Store.
+      Finally, we can actually process/query the data using the N3 functions.
+    </footer>
+  </div>
 
+  <div class="slide " id="querying_interfaces_solid">
+  <h2>Querying a Solid pod</h2>
+  <ul>
+    <li class="no-next">A solid pod contains documents
+      <ul>
+        <li class="no-next">Each document can be queried like a data dump</li>
+        <li class="no-next">Due to authorization, you can only download what you are allowed to read</li>
+      </ul>
+    </li>
+    <li class="no-next">A solid pod allows for building systems
+      <ul>
+        <li class="no-next">Data can be written to a solid pod (in contrast to a data dump)</li>
+      </ul>
+    </li>
+  </ul>
+  </div>
+
+  <div class="slide " id="querying_interfaces_solid-example">
+
+  </div>
+
+  <div class="slide " id="querying_interfaces_ldes">
+    <h2>Querying an LDES</h2>
+  </div>
+
+  <div class="slide " id="querying_interfaces_ldes-example">
+    <h2>Querying an LDES</h2>
+    <iframe class="website" src="https://tree.linkeddatafragments.org/demo/autocompletion/"></iframe>
+  </div>
+
+  <div class="slide " id="querying_interfaces_sparql">
+    <h2>Querying a SPARQL endpoint</h2>
+  </div>
 
   <script src="_shared/scripts/shower.min.js"></script>
   <script src="_shared/scripts/enhancements.js"></script>
