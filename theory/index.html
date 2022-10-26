@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <title></title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -45,9 +44,152 @@
     
     TODO:: Intro
 
-    <footer class="notes">
-    </footer>
   </div>
+
+
+
+  <div class="slide toc" id="toc">
+    <h2>
+      <a class="series" href="../">VAIA Course</a>
+      <br>
+      <a class="module" href="#title">Web Querying</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="#toc-ecosystem">Web APIs</a>
+      </li>
+      <li>
+        <a href="#toc-publishing">Linked Data Publishing</a>
+      </li>
+      <li>
+        <a href="#toc-querying">Linked Data Querying</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide toc" id="toc-ecosystem">
+    <h2>
+      <a class="series" href="../">VAIA Course</a>
+      <br>
+      <a class="module" href="#title">Web Querying</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#toc-ecosystem">Web APIs</a>
+      </li>
+      <li>
+        <a href="#toc-publishing">Linked Data Publishing</a>
+      </li>
+      <li>
+        <a href="#toc-querying">Linked Data Querying</a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="slide " id="overview">
+    <h2>Data on the Web</h2>
+    <ul>
+      <li class="no-next">The current Web provides scalability in amount of clients, not in amount data sources</li>
+      <li class="no-next">There is no inherent scalability in the integration of APIs</li>
+      <li class="no-next">Scalability comes from integration of data</li>
+    </ul>
+  </div>
+
+
+  <div class="slide" id="state_of_web">
+    <h2>A Web of tight coupling</h2>
+    <figure class="width margin">
+      <img src="images/state_current_web.svg" alt="Current Web Ecosystem" style="width: 90%;" />
+    </figure>
+  </div>
+
+
+  <div class="slide " id="example-api">
+    <h2>A classic Web API</h2>
+    <pre><code>
+      youraveragewebapi.com/API?artistid=2354
+      {
+        "id": 2354,
+        "name": "Nickleback",
+        "albums": [ ... ],
+        "singles": [ ... ],
+        "earnings": [ 256.324.245, ... ]
+      }
+      </code></pre>
+    </ul>
+  </div>
+
+  
+
+  <div class="slide" id="overview">
+    <h2>Reusing the API</h2>
+    <ul>
+      <li>
+      Start looking for the documentation on their website!
+      </li>
+    </ul>
+    <pre><code>
+      youraveragewebapi.com/API?artistid=2354
+      {
+        "id": 2354,
+        "name": "Nickleback",
+        "albums": [ ... ],
+        "singles": [ ... ],
+        "earnings": [ 256.324.245, ... ]
+      }
+      </code></pre>
+  </div>
+
+  
+  <div class="slide " id="api-integration-limitations">
+    <h2>Integrating APIs is not scalable</h2>
+    <ul>
+      <li>
+        APIs can take any number of different shapes
+        <ul>
+          <li>
+            Integration requires manual effort
+          </li>
+          <li>
+            Standardization can happen over large platforms
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide " id="api-integration-limitations">
+    <h2>Integrating APIs is not scalable</h2>
+    <ul>
+      <li>
+        APIs can take any number of different shapes
+        <ul>
+          <li>
+            Integration requires manual effort
+          </li>
+          <li>
+            Standardization can happen over large platforms
+          </li>
+        </ul>
+      </li>
+      <li>
+        APIs contain implicit context about served data
+        <ul>
+          <li>
+            Integration requires manual effort
+          </li>
+          <li>
+            Standardization can happen over large platforms
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+
+
+
 
   <div class="slide " id="overview">
     <h2>Data publication on the Web</h2>
@@ -56,19 +198,6 @@
       <li class="no-next">There is no inherent scalability in the integration of APIs</li>
       <li class="no-next">Scalability comes from integration of data</li>
     </ul>
-
-    <footer class="notes">
-      Scalability on the Web is currently solved by centralization of data.
-      Because of this centralization, data is stored within the context of their data silos, and a select number of APIs is provided that needs to be integrated to use the data.
-      This way, clients working in the context of facebook data, know that a name value means the full name of the user as given by them. 
-      By reading the documentation, it knows how to find images the user stored, images the user is tagged in and more, which is exposed over a limited set of APIs by facebook.
-      In case now they want to include the same data from google, they have to start again from zero, learn the documentation and integrate the new API.
-      Where this might be feasible for a small set of large centralized data silos, this approach is not scalable.
-
-
-
-
-    </footer>
   </div>
 
 
@@ -84,6 +213,32 @@
   <div class="slide " id="data_silos">
     <h2>Data Silos on the Web</h2>
     <img src="logos.png" style="height: 50vh;" />
+  </div>
+
+
+
+  <div class="slide toc" id="toc-publishing">
+    <h2>
+      <a class="series" href="../">VAIA Course</a>
+      <br>
+      <a class="module" href="#title">Web Querying</a>
+    </h2>
+    <ul>
+      <li>
+        <a href="#toc-ecosystem">Web APIs</a>
+      </li>
+      <li class="current">
+        <a href="#toc-publishing">Linked Data Publishing</a>
+        <ul>
+          <li>
+            Linked Data Fragments
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#toc-querying">Linked Data Querying</a>
+      </li>
+    </ul>
   </div>
 
   <div class="slide " id="data_publishing_strategies">
