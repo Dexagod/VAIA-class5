@@ -88,12 +88,37 @@
 
 
   <div class="slide " id="overview">
-    <h2>Data on the Web</h2>
+    <h2>How can a client use my data?</h2>
     <ul>
-      <li class="no-next">The current Web provides scalability in amount of clients, not in amount data sources</li>
-      <li class="no-next">There is no inherent scalability in the integration of APIs</li>
-      <li class="no-next">Scalability comes from integration of data</li>
+      <li>
+        We have data on our server that a client can use!
+        <ul>
+          <li>
+            How can the client find the data it needs?
+            How can a client retrieve the found data?
+            ...
+          </li>
+        </ul>
+      </li>
     </ul>
+    <p style="color:red; font-weight: bold;">TODO:: more</p>
+    
+  </div>
+
+
+  <div class="slide " id="overview">
+    <h2>What is a Web API?</h2>
+    <figure class="width margin">
+      <img src="images/Web _API.svg" alt="Current Web Ecosystem" style="width: 90%;" />
+    </figure>
+    <p style="color:red; font-weight: bold;">TODO:: not such a good image here</p>
+  </div>
+
+
+
+  <div class="slide" id="state_of_web">
+    <h2>A lot of different Web APIs</h2>
+    <p style="color:red; font-weight: bold;">TODO:: explain why there is a tight coupling between APIs and applications because apis are pretty specific in what data they provide access to</p>
   </div>
 
 
@@ -102,11 +127,24 @@
     <figure class="width margin">
       <img src="images/state_current_web.svg" alt="Current Web Ecosystem" style="width: 90%;" />
     </figure>
+    
   </div>
 
 
+
+  <div class="slide " id="overview">
+    <h2>Data on the Web</h2>
+    <ul>
+      <li class="no-next">The current Web provides scalability in amount of clients, not in amount data sources</li>
+      <li class="no-next">There is no inherent scalability in the integration of APIs</li>
+      <li class="no-next">Scalability comes from integration of data</li>
+    </ul>
+  </div>
+
   <div class="slide " id="example-api">
     <h2>A classic Web API</h2>
+
+    <p style="color:red; font-weight: bold;">TODO:: dont like this too much</p>
     <pre><code>
       youraveragewebapi.com/API?artistid=2354
       {
@@ -124,6 +162,7 @@
 
   <div class="slide" id="overview">
     <h2>Reusing the API</h2>
+    <p style="color:red; font-weight: bold;">TODO:: remove?</p>
     <ul>
       <li>
       Start looking for the documentation on their website!
@@ -155,6 +194,9 @@
             Standardization can happen over large platforms
           </li>
         </ul>
+      </li>
+      <li>
+        They are often designed to provide access to a select set of data to enable a select set of functionality
       </li>
     </ul>
   </div>
@@ -214,6 +256,50 @@
     <h2>Data Silos on the Web</h2>
     <img src="logos.png" style="height: 50vh;" />
   </div>
+
+  <div class="slide " id="data_silos">
+    <h2>Dependency of APIs leads to centralization</h2>
+    <ul>
+      <li>
+        We want to be independent of these data Silos
+        <ul>
+          <li>
+            We need solutions that enable us to scale our requests to higher numbers of data sources without integrating a new API for each source    
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p style="color:red; font-weight: bold;">TODO:: slide</p>
+  </div>
+
+  <div class="slide " id="data_silos">
+    <h2>What do we need for this scalability</h2>
+    <ul>
+      <li>
+        We need to be able to understand the data,
+        independently of the API over which it was retrieved.
+        <ul>
+          <li>We cannot read the documentation of 100 APIs to understand how to interpret returned data."</li>
+        </ul>
+      </li>
+      <li>
+        We need to provide interfaces that can move this data from servers to clients in a way that works for both
+        <ul>
+          <li>
+            As APIs are no longer tailor made for a single usecase, 
+            not every server will be able to provide exactly what any client requires. 
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <p style="color:red; font-weight: bold;">TODO:: slide</p>
+  </div>
+
+  
+
+
+
+ 
 
 
 
