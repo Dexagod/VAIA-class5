@@ -498,7 +498,268 @@
   <div class="slide " id="querying_interfaces_sparql">
     <h2>Querying a SPARQL endpoint</h2>
   </div>
+  <div class="slide " id="querying_interfaces_tpf">
+    <h2>Querying an LDES</h2>
+  </div>
 
+  <div class="slide " id="querying_interfaces_ldes">
+    <h2>Querying an LDES</h2>
+  </div>
+
+  <div class="slide " id="querying_interfaces_ldes-example">
+    <h2>Querying an LDES</h2>
+    <iframe class="website" src="https://tree.linkeddatafragments.org/demo/autocompletion/"></iframe>
+  </div>
+
+  <div class="slide " id="querying_interfaces_sparql">
+    <h2>Querying a SPARQL endpoint</h2>
+  </div>
+
+  <div class="slide " id="comunica">
+    <h2><a href="https://comunica.dev">Comunica</a></h2>
+    <ul>
+      <li class="no-next">A knowledge graph querying framework</li>
+      <li class="no-next">Querying over heterogeneous interfaces</li>
+      <ul>
+        <li class="no-next">Goal: executing <b>SPARQL</b> queries over one or more <b>interfaces</b></li>
+      </ul>
+      <li class="no-next"></li>
+    </ul>
+    <footer class="notes">
+      <a href="https://comunica.dev/about/">Comunica</a> is a querying framework that has been designed to handle different types of Linked Data interfaces in a flexible manner. Its primary goal is executing SPARQL queries over one or more interfaces.
+
+      SPARQL Protocol And RDF Query Language
+    </footer>
+  </div>
+
+  <div class="slide" id="sparql-language-protocol">
+    <h2>
+      <a href="https://www.w3.org/TR/sparql11-overview/">SPARQL Protocol And RDF Query Language</a>:
+      enable querying &amp; updating RDF datasets.
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="#sparql-query-forms">SPARQL</a> is a query language.
+        <ul>
+          <li>Select specific data from an RDF dataset.</li>
+          <li>Insert, change, or delete data in an RDF dataset.</li>
+        </ul>
+      </li>
+      <li class="next">
+        The <a href="#sparql-protocol">SPARQL protocol</a>
+        is a <a href="../web-apis/#definition">Web API</a> definition<br>
+        for querying in the SPARQL language over HTTP.
+        <ul>
+          <li>
+            A <em>SPARQL endpoint</em> executes SPARQL queries sent by clients<br>
+            through HTTP, and replies with their results.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="sparql-query-forms">
+    <h2>
+      The <a href="https://www.w3.org/TR/sparql11-overview/">SPARQL language</a> defines<br>
+      forms a query can take.
+    </h2>
+    <p>There are currently 4 read-only query forms:</p>
+    <dl>
+      <dt><a href="https://www.w3.org/TR/sparql11-query/#select"><code>SELECT</code></a></dt>
+      <dd>find values that satisfy conditions</dd>
+      <dt><a href="https://www.w3.org/TR/sparql11-query/#construct"><code>CONSTRUCT</code></a></dt>
+      <dd>create triples that satisfy conditions</dd>
+      <dt><a href="https://www.w3.org/TR/sparql11-query/#ask"><code>ASK</code></a></dt>
+      <dd>check whether data exists</dd>
+      <dt><a href="https://www.w3.org/TR/sparql11-query/#describe"><code>DESCRIBE</code></a></dt>
+      <dd>show information about a resource</dd>
+    </dl>
+  </div>
+
+
+  <div class="slide" id="sparql-query-forms-writing">
+    <h2>
+      The <a href="https://www.w3.org/TR/sparql11-overview/">SPARQL language</a> defines<br>
+      forms a query can take.
+    </h2>
+    <p>There are currently 2 write-only query forms:</p>
+    <dl>
+      <dt><a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/#insertData"><code>INSERT DATA</code></a></dt>
+      <dd>adds some triples</dd>
+      <dt><a href="https://www.w3.org/TR/2013/REC-sparql11-update-20130321/#deleteData"><code>DELETE DATA</code></a></dt>
+      <dd>removes some triples</dd>
+    </dl>
+  </div>
+  
+  <div class="slide" id="bgp">
+    <h2>
+      The main building block of a SPARQL query<br>
+      is a <a href="https://www.w3.org/TR/sparql11-query/#BasicGraphPatterns">Basic Graph Pattern (BGP)</a>.
+    </h2>
+    <ul>
+      <li>
+        A BGP is a set of <em>triple patterns</em>.
+        <ul>
+          <li>Their syntax is a superset of <a href="#turtle">Turtle</a>.</li>
+        </ul>
+      </li>
+      <li class="next">
+        A <a href="https://www.w3.org/TR/sparql11-query/#QSynTriples">triple pattern</a>
+        is a triple in which<br>
+        each of the components can be a <a href="https://www.w3.org/TR/sparql11-query/#QSynVariables">variable</a>.
+        <ul>
+          <li>Variables start with a question mark (<code>?name</code>).</li>
+        </ul>
+      </li>
+      <li class="next">
+        A SPARQL query engine finds <a href="https://www.w3.org/TR/sparql11-query/#sparqlSolutions">solution mappings</a>.
+        <ul>
+          <li>
+            Variables and blank nodes are mapped to IRIs,<br>
+            blank nodes, or literals according to dataset triples.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="sparql-select-example">
+    <h2>
+      This query finds artists<br>
+      influenced by Picasso.
+    </h2>
+    <pre><code><span class="comment">PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;</span>
+<span class="comment">PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;</span>
+SELECT ?name ?person WHERE {
+  ?person a dbo:Artist.
+  ?person foaf:name ?name.
+  ?person dbo:influencedBy dbr:Pablo_Picasso.
+}</code></pre>
+  </div>
+
+  <div class="slide" id="sparql-select-evaluation">
+    <h2>
+      A query engine will try to find mappings<br>
+      such that the entire BGP is satisfied.
+    </h2>
+    <p>
+      When the mappings are substituted in the BGP,<br>
+      the dataset should contain triples as follows:
+    </p>
+    <ul>
+      <li><code>?person a dbo:Artist.</code></li>
+      <li><code>?person foaf:name ?name.</code></li>
+      <li><code>?person dbo:influencedBy dbr:Pablo_Picasso.</code></li>
+    </ul>
+  </div>
+
+  <div class="slide" id="sparql-select-client">
+    <h2>
+      Evaluating this query against DBpedia<br>
+      returns possible mappings.
+    </h2>
+    <iframe class="query-client" src="./_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-construct-client">
+    <h2>
+      A <code>CONSTRUCT</code> query<br>
+      returns matching triples.
+    </h2>
+    <iframe class="query-client" src="./_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=CONSTRUCT%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-ask-client">
+    <h2>
+      An <code>ASK</code> query returns a boolean stating<br>
+      whether the pattern exists in the dataset.
+    </h2>
+    <iframe class="query-client" src="./_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=ASK%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-describe-client">
+    <h2>
+      A <code>DESCRIBE</code> query returns (non-specified)<br>
+      contextual information for resources.
+    </h2>
+    <iframe class="query-client" src="./_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=DESCRIBE%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20foaf%3Aname%20%22Pablo%20Picasso%22%40en.%0A%7D"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-modifiers">
+    <h2>
+      In addition to only BGPs,<br>
+      SPARQL queries can contain <em>modifiers</em>.
+    </h2>
+    <dl>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#modResultLimit"><code>LIMIT</code></a></dt>
+      <dd>only return the first <var>n</var> results</dd>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#OptionalMatching"><code>OPTIONAL</code></a></dt>
+      <dd>specifies a left join</dd>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#tests"><code>FILTER</code></a></dt>
+      <dd>selects based on an expression</dd>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#modOrderBy"><code>ORDER BY</code></a></dt>
+      <dd>sorts results based on an expression</dd>
+      <dt>…</dt>
+      <dd>…</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="sparql-modifiers-example">
+    <h2>
+      In addition to only BGPs,<br>
+      SPARQL queries can contain <em>modifiers</em>.
+    </h2>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3Fperson%20%3Fspouse%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbo%3Aspouse%20%3Fspouse.%20%7D%0A%20%20FILTER%20LANGMATCHES(LANG(%3Fname)%2C%20%22EN%22)%0A%7D%0ALIMIT%2010"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-protocol">
+    <h2>
+      The purpose of the <a href="https://www.w3.org/TR/sparql11-protocol">SPARQL protocol</a><br>
+      is sending queries and receiving results.
+    </h2>
+    <ul>
+      <li>
+        The server is typically an RDF database (<em>triplestore</em>)<br>
+        with a SPARQL query engine.
+      </li>
+      <li class="next">
+        The client sends a query using a <a href="https://www.w3.org/TR/sparql11-protocol/#query-operation">URI template</a>.
+        <ul>
+          <li>
+            In essence, <code>/sparql?query={query}</code> with<br>
+            a URL-encoded SPARQL query through <code>GET</code> or <code>POST</code>.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The server replies in a <a href="https://www.w3.org/TR/sparql11-protocol/#query-success">standardized format</a>.
+        <ul class="inline">
+          <li><a href="https://www.w3.org/TR/rdf-sparql-XMLres/">XML</a></li>
+          <li><a href="https://www.w3.org/TR/sparql11-results-json/">JSON</a></li>
+          <li><a href="https://www.w3.org/TR/sparql11-results-csv-tsv/">CSV/TSV</a></li>
+          <li>RDF (for <code>CONSTRUCT</code>/<code>DESCRIBE</code>)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- <div class="slide " id="comunica_sparql">
+    <h2>SPARQL language</h2>
+    <ul>
+      <li><strong>SPARQL</strong>: a language for reading and updating data in RDF datasets via <em>declarative queries</em>.</li>
+      <li>
+          Different query forms:
+          <ul>
+              <li><code>SELECT</code>: selecting values in tabular form</li>
+              <li><code>CONSTRUCT</code>: construct new triples</li>
+              <li><code>ASK</code>: check if data exists</li>
+              <li><code>DESCRIBE</code>: describe a given resource</li>
+              <li><code>INSERT</code>: insert new triples</li>
+              <li><code>DELETE</code>: delete existing triples</li>
+          </ul>
+      </li>
+  </ul>
+  </div> -->
   <script src="_shared/scripts/shower.min.js"></script>
   <script src="_shared/scripts/enhancements.js"></script>
 </body>
