@@ -1,5 +1,16 @@
-## Exercise 4.3
+## Exercise 4.2
 
-Order by date the titles of the publications of professor Pieter Colpaert.
+Using our results from the exercise 4.1, we now want find the titles of the publications made by Ruben Verborgh, and order these titles by the date of the publication).
 
-For this, use the comunica framework over a Triple Pattern Fragments made available by the Ghent University Library using the [Comunica browser interface](https://query.linkeddatafragments.org/#datasources=%2F%2Fdata.linkeddatafragments.org%2Fugent-biblio&query=%23%20Write%20your%20query%20here!).
+Use the Comunica SPARQL interface for the UGent biblio TPF endpoint:
+Comunica SPARQL interface querying over the same Triple Pattern Fragments endpoint:
+https://query.linkeddatafragments.org/#datasources=%2F%2Fdata.linkeddatafragments.org%2Fugent-biblio&query=%23%20Write%20your%20query%20here!
+
+
+Use the following vocabularies:
+
+| name    | prefix    | url                        | interesting properties                           | site                                                              |
+|---------|-----------|----------------------------|--------------------------------------------------|-------------------------------------------------------------------|
+| FOAF    | `foaf`    | http://xmlns.com/foaf/0.1/ | `foaf:name` `foaf:givenname` `foaf:surname`      | http://xmlns.com/foaf/0.1/                                        |
+| DCTerms | `dcterms` | http://purl.org/dc/terms/  | `dcterms:title` `dcterms:creator` `dcterms:date` | https://www.dublincore.org/specifications/dublin-core/dcmi-terms/ |
+
