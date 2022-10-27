@@ -6,6 +6,8 @@ Use the Comunica SPARQL interface for the UGent biblio TPF endpoint:
 Comunica SPARQL interface querying over the same Triple Pattern Fragments endpoint:
 https://query.linkeddatafragments.org/#datasources=%2F%2Fdata.linkeddatafragments.org%2Fugent-biblio&query=%23%20Write%20your%20query%20here!
 
+To order the retrieved publications, make use of the [ORDER BY modifier](https://www.w3.org/TR/rdf-sparql-query/#modOrderBy).
+
 
 Use the following vocabularies:
 
