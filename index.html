@@ -1197,12 +1197,12 @@ SELECT ?name ?person WHERE {
     </ul>
   </div>
 
-  <div class="website" id="sparql-aggregators-example">
+  <div class="slide" id="sparql-aggregators-example">
     <h2>
       In addition to only BGPs,<br>
       SPARQL queries can contain <em>aggregations</em>.
     </h2>
-    <iframe class="query-client" src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=PREFIX%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20dbp%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0A%0ASELECT%20(count(%3Fperson)%20as%20%3Fcount)%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D%20GROUP%20BY%20(dbp%3APablo_Picasso%20as%20%3Fpablo)%0A"></iframe>
+    <iframe class="website" src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=PREFIX%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0APREFIX%20rdfs%3A%20%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0APREFIX%20dbp%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0A%0ASELECT%20(count(%3Fperson)%20as%20%3Fcount)%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D%20GROUP%20BY%20(dbp%3APablo_Picasso%20as%20%3Fpablo)%0A%23%20HAVING%20(count(%3Fperson)%20%20%3E%20100)%0A"></iframe>
   </div>
 
   <div class="slide" id="sparql-protocol">
