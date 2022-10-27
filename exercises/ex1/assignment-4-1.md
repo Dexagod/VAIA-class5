@@ -1,6 +1,6 @@
 ## Exercise 4.1
 
-Discover the identifier of Pieter Colpaert in the Ugent biblio system using both the Triple Patter Fragments interface and the Comunica SPARQL interface.
+Discover the identifier of Ruben Verborgh in the Ugent biblio system using both the Triple Patter Fragments interface and the Comunica SPARQL interface.
 
 
 Interface for the Triple Pattern Fragments endpoint of the Ugent Biblio graph (dates from 2014):
