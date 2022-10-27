@@ -1,6 +1,6 @@
 ## Exercise 4.2
 
-Using our results from the exercise 4.1, we now want find the titles of the publications made by Ruben Verborgh, and order these titles by the date of the publication).
+Using our results from the exercise 4.1, we now want find the title and date of the publications made by Ruben Verborgh, and order these titles by the date of the publication).
 
 Use the Comunica SPARQL interface for the UGent biblio TPF endpoint:
 Comunica SPARQL interface querying over the same Triple Pattern Fragments endpoint:

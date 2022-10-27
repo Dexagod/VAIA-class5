@@ -6,7 +6,7 @@ The following query results in the titles of all publications of Ruben Verborgh 
 ```
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-SELECT ?title WHERE {
+SELECT ?title ?date WHERE {
   ?author foaf:surname "Verborgh".
   ?author foaf:givenname "Ruben".
   ?publication dcterms:creator ?author;
@@ -20,7 +20,7 @@ Or you can use the foaf:name property again:
 ```
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-SELECT ?title WHERE {
+SELECT ?title ?date WHERE {
   ?author foaf:name "Ruben Verborgh".
   ?publication dcterms:creator ?author;
                dcterms:title ?title;
