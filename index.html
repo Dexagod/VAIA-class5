@@ -44,7 +44,7 @@
 
   <div class="slide" id="you-are-here">
     <figure class="cover width margin">
-      <img src="images/youarehere.png" />
+      <img src="images/youarehere.png" style="width: 90%" />
     </figure>
   </div>
   
@@ -94,7 +94,7 @@
 
 
 
-  <div class="slide" id="you-are-here">
+  <div class="slide" id="today">
     <h2>
       Today
     </h2>
@@ -104,29 +104,6 @@
       </li>
       <li>
         And how you can participate by making your data available for querying as well!
-      </li>
-    </ul>
-  </div>
-
-
-  <div class="slide toc" id="toc">
-    <h2>
-      <a class="series" href="../">VAIA Course</a>
-      <br>
-      <a class="module" href="#title">Querying the Web of data</a>
-    </h2>
-    <ul>
-      <li>
-        <a href="#toc-ecosystem">Linked Data on the Web</a>
-      </li>
-      <li>
-        <a href="#toc-publishing">Linked Data Publishing</a>
-      </li>
-      <li>
-        <a href="#toc-querying">Querying Linked Data with Comunica</a>
-      </li>
-      <li>
-        <a href="#toc-comunica">The SPARQL query language</a>
       </li>
     </ul>
   </div>
@@ -154,49 +131,100 @@
   </div>
 
 
-  <div class="slide " id="overview">
-    <h2>How can a client use my data?</h2>
+
+  <div class="slide " id="linked-data-on-the-web-intro">
+    <h2>
+      Linked Data on the Web
+    </h2>
     <ul>
       <li>
-        We have data on our server that a client can use!
+        Linked Data provides its own context
         <ul>
           <li>
-            How can the client find the data it needs?
-            How can a client retrieve the found data?
-            ...
+            A <code>foaf:name</code> property describes the name of something.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Linked Data can be provided in many formats
+        <ul>
+          <li>
+            The data should not depend on the context of its retrieval.
           </li>
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="slide " id="linked-data-semantics">
+    <h2>
+      Storing semantics in the data
+    </h2>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
     <p style="color:red; font-weight: bold;">TODO:: more</p>
-    
   </div>
 
+  <div class="slide " id="linked-data-format">
+    <h2>
+      Linked data does not care about its format
+    </h2>
+    <ul>
+      <li>
+        An RDF document represents a data graph.
+      </li>
+      <li>
+        Through this data graph, we can convert between formats.
+      </li>
+    </ul>
+  </div>
 
-  <div class="slide " id="overview">
-    <h2>What is a Web API?</h2>
+  <div class="slide " id="linked-data-turtle">
+    <h2>
+      it can be a turtle serialization
+    </h2>
     <figure class="width margin">
-      <img src="images/Web _API.svg" alt="Current Web Ecosystem" style="width: 90%;" />
+      <img src="images/linked-data-ttl.svg" />
     </figure>
-    <p style="color:red; font-weight: bold;">TODO:: not such a good image here</p>
   </div>
 
-
-
-  <div class="slide" id="state_of_web">
-    <h2>A lot of different Web APIs</h2>
-    <p style="color:red; font-weight: bold;">TODO:: explain why there is a tight coupling between APIs and applications because apis are pretty specific in what data they provide access to</p>
+  <div class="slide " id="linked-data-jsonld">
+    <h2>
+      it can be a json-ld serialization
+    </h2>
+    <figure class="width margin">
+      <img src="images/linked-data-jsonld.svg" />
+    </figure>
   </div>
 
+  <div class="slide " id="linked-data-script">
+    <h2>
+      it can be embedded in a Web page as a script
+    </h2>
+    <figure class="width margin">
+      <img src="images/linked-data-script.svg" />
+    </figure>
+  </div>
+
+  <div class="slide " id="linked-data-rdfa">
+    <h2>
+      or it can be embedded directly into the HTML as RDFa
+    </h2>
+    <figure class="width margin">
+      <img src="images/linked-data-rdfa.svg" />
+    </figure>
+  </div>
+  
 
   <div class="slide" id="state_of_web">
     <h2>A Web of tight coupling</h2>
     <figure class="width margin">
       <img src="images/state_current_web.svg" alt="Current Web Ecosystem" style="width: 90%;" />
     </figure>
-    
   </div>
-
 
 
   <div class="slide " id="overview">
@@ -392,7 +420,7 @@
             <a href="#toc-publishing">Data publishing strategies</a>
           </li>
           <li>
-            <a href="#toc-ldes">Building a low-cost high-reuse interface</a>
+            <a href="#toc-ldes">A low-cost high-reuse interface</a>
           </li>
         </ul>
       </li>
@@ -790,7 +818,7 @@
             <a href="#toc-publishing">Data publishing strategies</a>
           </li>
           <li class="current">
-            <a href="#toc-ldes">Building a low-cost high-reuse interface</a>
+            <a href="#toc-ldes">A low-cost high-reuse interface</a>
           </li>
         </ul>
       </li>
